@@ -42,7 +42,6 @@ app.get('/callback', (req, res) => {
     .then(function (tokenSet) {
       client.userinfo(tokenSet.access_token)
         .then(function (userinfo) {
-          print(userinfo.name)
           res.redirect(process.env.REDIRECT_URL_WEB_APP +
             '?name=' + userinfo.name +
             '&email=' + userinfo.email +
